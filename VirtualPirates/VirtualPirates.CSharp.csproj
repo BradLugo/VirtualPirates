@@ -58,12 +58,6 @@
     <Reference Include="UnityEngine.Networking">
       <HintPath>Library\UnityAssemblies\UnityEngine.Networking.dll</HintPath>
     </Reference>
-    <Reference Include="UnityEngine.Networking">
-      <HintPath>Library\UnityAssemblies\UnityEngine.Networking.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.UI">
-      <HintPath>Library\UnityAssemblies\UnityEngine.UI.dll</HintPath>
-    </Reference>
     <Reference Include="UnityEditor">
       <HintPath>Library\UnityAssemblies\UnityEditor.dll</HintPath>
     </Reference>
@@ -99,6 +93,20 @@
     <Compile Include="Assets\GUI Animator\GUI Animator FREE\Demo (CSharp)\Scripts\GA_FREE_DemoPlaySound.cs" />
     <Compile Include="Assets\GUI Animator\GUI Animator FREE\Demo (CSharp)\Scripts\GA_FREE_OpenOtherScene.cs" />
     <Compile Include="Assets\GUI Animator\GUI Animator FREE\Demo Basic (CSharp)\Scripts\GUIAnimatorFREEDemo.cs" />
+    <Compile Include="Assets\Scripts\Implementations\ViveInputManager.cs" />
+    <Compile Include="Assets\Scripts\Implementations\ViveWandControler.cs" />
+    <Compile Include="Assets\Scripts\Interfaces\Condition.cs" />
+    <Compile Include="Assets\Scripts\Interfaces\IAttackManager.cs" />
+    <Compile Include="Assets\Scripts\Interfaces\IConditionManager.cs" />
+    <Compile Include="Assets\Scripts\Interfaces\IDefenseManager.cs" />
+    <Compile Include="Assets\Scripts\Interfaces\IDestructionManager.cs" />
+    <Compile Include="Assets\Scripts\Interfaces\IHealthManager.cs" />
+    <Compile Include="Assets\Scripts\Interfaces\IInputManager.cs" />
+    <Compile Include="Assets\Scripts\Interfaces\IMenuItem.cs" />
+    <Compile Include="Assets\Scripts\Interfaces\IMovementManager.cs" />
+    <Compile Include="Assets\Scripts\Interfaces\IResourceManager.cs" />
+    <Compile Include="Assets\Scripts\Interfaces\Plugins\openvr_api.cs" />
+    <Compile Include="Assets\Scripts\Interfaces\TrapPlacement.cs" />
     <Compile Include="Assets\SteamVR\Extras\SteamVR_GazeTracker.cs" />
     <Compile Include="Assets\SteamVR\Extras\SteamVR_LaserPointer.cs" />
     <Compile Include="Assets\SteamVR\Extras\SteamVR_Teleporter.cs" />
