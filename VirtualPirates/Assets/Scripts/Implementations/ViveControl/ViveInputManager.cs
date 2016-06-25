@@ -15,14 +15,15 @@ public class ViveInputManager : MonoBehaviour, IInputManager {
     public Vector3 targetedPoint { get { return targetedPoint; } }
     public IMenuItem menuHoveringOver { get { return menuHoveringOver; } }
 
-    private ViveWandControler rightController;
-    private ViveWandControler leftController;
+    private ViveRightController rightController;
+    private ViveLeftController leftController;
+
 
     // Use this for initialization
     void Start () {
-        rightController = new ViveWandControler();
-        leftController = new ViveWandControler(); 
-	}
+        rightController = gameObject.GetComponentInChildren<ViveRightController>();
+        leftController = gameObject.GetComponentInChildren<ViveLeftController>();
+    }
 	
 	// Update is called once per frame
 	void Update () {

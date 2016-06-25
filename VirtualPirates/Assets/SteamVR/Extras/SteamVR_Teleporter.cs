@@ -11,7 +11,7 @@ public class SteamVR_Teleporter : MonoBehaviour
     }
 
     public bool teleportOnClick = false;
-    public TeleportType teleportType = TeleportType.TeleportTypeUseZeroY;
+    public TeleportType teleportType = TeleportType.TeleportTypeUseTerrain;
 
 	Transform reference
 	{
@@ -30,7 +30,7 @@ public class SteamVR_Teleporter : MonoBehaviour
 			trackedController = gameObject.AddComponent<SteamVR_TrackedController>();
         }
 
-		trackedController.TriggerClicked += new ClickedEventHandler(DoClick);
+	    trackedController.PadClicked += new ClickedEventHandler(DoClick);
 
         if (teleportType == TeleportType.TeleportTypeUseTerrain)
         {
@@ -43,12 +43,12 @@ public class SteamVR_Teleporter : MonoBehaviour
 	
     void DoClick(object sender, ClickedEventArgs e)
     {
+        Debug.Log("Clicked teleport object");
         if (teleportOnClick)
         {
 			var t = reference;
 			if (t == null)
 				return;
-
             float refY = t.position.y;
 
             Plane plane = new Plane(Vector3.up, -refY);
