@@ -20,7 +20,7 @@ public class MonsterHealthManager : MonoBehaviour, IHealthManager {
 
     // Use this for initialization
     void Start () {
-        _health = 10;
+        _health = 30;
 	}
 	
 	// Update is called once per frame

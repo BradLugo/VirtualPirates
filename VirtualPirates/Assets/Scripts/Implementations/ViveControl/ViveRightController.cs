@@ -38,19 +38,8 @@ public class ViveRightController : MonoBehaviour
 
     void OnPadClicked(object sender, ClickedEventArgs e)
     {
-        Debug.Log("Right: Pad Clicked! X: " + e.padX + " " + e.padY);
-    }
-
-    void OnUnclickTrigger(object sender, ClickedEventArgs e)
-    {
-        Debug.Log("Right: Unclicked trigger!");
-    }
-
-    void OnClickTrigger(object sender, ClickedEventArgs e)
-    {
         if (!interactingItem)
         {
-            Debug.Log("Right: Clicked trigger!");
             // Find the closest item to the hand in case there are multiple and interact with it
             float minDistance = float.MaxValue;
 
@@ -65,7 +54,6 @@ public class ViveRightController : MonoBehaviour
                     closestItem = item;
                 }
             }
-            Debug.Log(closestItem.name);
             interactingItem = closestItem;
             closestItem = null;
 
@@ -81,17 +69,26 @@ public class ViveRightController : MonoBehaviour
         }
         else
         {
-            Debug.Log("Right: End interaction");
             interactingItem.EndInteraction(this);
             interactingItem = null;
         }
-        
+
+    }
+
+    void OnUnclickTrigger(object sender, ClickedEventArgs e)
+    {
+        Debug.Log("Right: Unclicked trigger!");
+    }
+
+    void OnClickTrigger(object sender, ClickedEventArgs e)
+    {
+        Debug.Log("Right: Clicked trigger!");
     }
 
     // Adds all colliding items to a HashSet for processing which is closest
     private void OnTriggerEnter(Collider collider)
     {
-        Debug.Log("Intersected collider");
+        Debug.Log("Ran into somthin");
         IWieldable collidedItem = collider.GetComponent<IWieldable>();
         if (collidedItem)
         {

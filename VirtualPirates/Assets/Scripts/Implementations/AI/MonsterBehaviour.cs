@@ -15,7 +15,6 @@ public class MonsterBehaviour : MonoBehaviour {
 
     // Use this for initialization
 	void Start () {
-
         movementManager = GetComponent<IMovementManager>();
         attackManager = GetComponent<IAttackManager>();
         defenseManager = GetComponent<IDefenseManager>();
@@ -33,8 +32,6 @@ public class MonsterBehaviour : MonoBehaviour {
         }
         else
         {
-            Debug.Log("We're movin");
-            Debug.Log(targetPosition);
             movementManager.Move(targetPosition);
         }
 

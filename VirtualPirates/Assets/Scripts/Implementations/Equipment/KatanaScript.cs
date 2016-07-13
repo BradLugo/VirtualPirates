@@ -5,6 +5,7 @@ using System;
 public class KatanaScript : IWieldable {
 
     protected Rigidbody rigidbody;
+    protected MeshCollider collider;
     private bool currentlyInteracting = false;
 
     // velocity_obj = (hand_pos - obj_pos) * velocityFactor / rigidbody.mass
@@ -21,16 +22,17 @@ public class KatanaScript : IWieldable {
     // The point at which the object will be held
     private Transform interactionPoint;
 
+    private int _attackValue;
     public int attackValue
     {
         get
         {
-            return attackValue;
+            return _attackValue;
         }
 
         set
         {
-            attackValue = value;
+            _attackValue = value;
         }
     }
 
@@ -40,6 +42,7 @@ public class KatanaScript : IWieldable {
         {
             attachedController = null;
             currentlyInteracting = false;
+            collider.isTrigger = false;
         }
     }
 
@@ -51,7 +54,7 @@ public class KatanaScript : IWieldable {
     public override void BeginInteraction(ViveRightController wand)
     {
         attachedController = wand;
-
+        collider.isTrigger = true;
         interactionPoint.position = this.transform.position;
         interactionPoint.rotation = this.transform.rotation;
 
@@ -63,22 +66,25 @@ public class KatanaScript : IWieldable {
         interactionPoint.SetParent(transform, true);
 
         currentlyInteracting = true;
+
+     
     }
 
     void Start()
     {
         rigidbody = GetComponent<Rigidbody>();
+        collider = GetComponent<MeshCollider>();
         interactionPoint = new GameObject().transform;
         velocityFactor /= rigidbody.mass;
         rotationFactor /= rigidbody.mass;
+        _attackValue = 10;
     }
 
     // Update is called once per frame
     void Update () {
         if (attachedController && currentlyInteracting)
         {
-            Debug.Log("Katana item is interacting");
-
+            
             posDelta = attachedController.transform.position - interactionPoint.position;
 
             float distance;
@@ -109,5 +115,15 @@ public class KatanaScript : IWieldable {
             this.rigidbody.angularVelocity = (Time.fixedDeltaTime * angle * axis) * rotationFactor;
         }
     }
+    private void OnTriggerEnter(Collider collider)
+    {
+        IDefenseManager targetDefense = collider.gameObject.GetComponent<IDefenseManager>();
 
+        if (targetDefense != null)
+        {
+            Debug.Log("HIT DAT");
+
+            targetDefense.Defend(_attackValue);
+        }
+    }
 }
