@@ -4,15 +4,15 @@ using System;
 
 public class KatanaScript : IWieldable {
 
-    protected Rigidbody rigidbody;
-    protected MeshCollider collider;
+    protected Rigidbody rigidbodyInstance;
+    protected MeshCollider meshCollider;
     private bool currentlyInteracting = false;
 
     // velocity_obj = (hand_pos - obj_pos) * velocityFactor / rigidbody.mass
-    private float velocityFactor = 20000f;
+    private float velocityFactor = 9000f;
     private Vector3 posDelta; // posDelta = (hand_pos - obj_pos)
 
-    private float rotationFactor = 10000;
+    private float rotationFactor = 100;
     private Quaternion rotationDelta;
     private float angle;
     private Vector3 axis;
@@ -38,11 +38,11 @@ public class KatanaScript : IWieldable {
 
     public override void EndInteraction(ViveRightController wand)
     {
-        if (wand == attachedController)
+        if (wand == attachedController || attachedController == null)
         {
             attachedController = null;
             currentlyInteracting = false;
-            collider.isTrigger = false;
+            meshCollider.isTrigger = false;
         }
     }
 
@@ -54,14 +54,17 @@ public class KatanaScript : IWieldable {
     public override void BeginInteraction(ViveRightController wand)
     {
         attachedController = wand;
-        collider.isTrigger = true;
+        meshCollider.isTrigger = true;
         interactionPoint.position = this.transform.position;
+        this.transform.rotation = Quaternion.Euler(new Vector3(0,0,0));
         interactionPoint.rotation = this.transform.rotation;
 
-        Vector3 rot = interactionPoint.transform.rotation.eulerAngles;
-        rot = new Vector3(rot.x, rot.y + 180, rot.z + 180);
+        //Vector3 rot = interactionPoint.transform.rotation.eulerAngles;
+
+        Vector3 rot = new Vector3(270f, 0, 0);
 
         interactionPoint.transform.rotation = Quaternion.Euler(rot);
+
 
         interactionPoint.SetParent(transform, true);
 
@@ -72,12 +75,12 @@ public class KatanaScript : IWieldable {
 
     void Start()
     {
-        rigidbody = GetComponent<Rigidbody>();
-        collider = GetComponent<MeshCollider>();
+        rigidbodyInstance = GetComponent<Rigidbody>();
+        meshCollider = GetComponent<MeshCollider>();
         interactionPoint = new GameObject().transform;
-        velocityFactor /= rigidbody.mass;
-        rotationFactor /= rigidbody.mass;
-        _attackValue = 10;
+        velocityFactor /= rigidbodyInstance.mass;
+        rotationFactor /= rigidbodyInstance.mass;
+        _attackValue = 20;
     }
 
     // Update is called once per frame
@@ -90,17 +93,19 @@ public class KatanaScript : IWieldable {
             float distance;
             distance = (attachedController.transform.position - transform.position).sqrMagnitude;
 
-            if (distance > 0.03)
+            if (distance < 0.05)
             {
-                this.rigidbody.velocity = posDelta * velocityFactor * Time.fixedDeltaTime;
+                meshCollider.isTrigger = false;
+                this.rigidbodyInstance.velocity = posDelta * velocityFactor * Time.fixedDeltaTime;
             }
             else
             {
-                this.transform.rotation = attachedController.transform.rotation * Quaternion.Euler(0f, 180f, 180f); 
+                meshCollider.isTrigger = true;
+                this.transform.rotation = attachedController.transform.rotation * Quaternion.Euler(90f, 0f, 0f);
                 this.transform.position = attachedController.transform.position;
                 posDelta = new Vector3(0, 0, 0);
                 rotationDelta = new Quaternion();
-                this.rigidbody.velocity = new Vector3(0, 0, 0);
+                this.rigidbodyInstance.velocity = new Vector3(0, 0, 0);
             }
 
 
@@ -112,12 +117,13 @@ public class KatanaScript : IWieldable {
                 angle -= 360;
             }
 
-            this.rigidbody.angularVelocity = (Time.fixedDeltaTime * angle * axis) * rotationFactor;
+            if (angle != float.NaN)
+                this.rigidbodyInstance.angularVelocity = (Time.fixedDeltaTime * angle * axis) * rotationFactor;
         }
     }
     private void OnTriggerEnter(Collider collider)
     {
-        IDefenseManager targetDefense = collider.gameObject.GetComponent<IDefenseManager>();
+        IDefenseManager targetDefense = collider.gameObject.GetComponentInParent<IDefenseManager>();
 
         if (targetDefense != null)
         {

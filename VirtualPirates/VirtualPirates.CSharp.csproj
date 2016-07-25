@@ -121,11 +121,13 @@
     <Compile Include="Assets\GUI Animator\GUI Animator FREE\Demo (CSharp)\Scripts\GA_FREE_DemoPlaySound.cs" />
     <Compile Include="Assets\GUI Animator\GUI Animator FREE\Demo (CSharp)\Scripts\GA_FREE_OpenOtherScene.cs" />
     <Compile Include="Assets\GUI Animator\GUI Animator FREE\Demo Basic (CSharp)\Scripts\GUIAnimatorFREEDemo.cs" />
+    <Compile Include="Assets\LevelLoaderScript.cs" />
     <Compile Include="Assets\LevelOneDoor.cs" />
     <Compile Include="Assets\MOBA Heroes\Towers\Practice Dummy\hitDummy.cs" />
     <Compile Include="Assets\Mage Stuff\Scripts\ExplodeSpell.cs" />
     <Compile Include="Assets\Mage Stuff\Scripts\MagicDeath.cs" />
     <Compile Include="Assets\Mage Stuff\Scripts\SpellCast.cs" />
+    <Compile Include="Assets\MonsterSpawn.cs" />
     <Compile Include="Assets\Particle Ribbon\Scripts\ReverseNormals.cs" />
     <Compile Include="Assets\Scripts\Implementations\AI\MonsterAttackManager.cs" />
     <Compile Include="Assets\Scripts\Implementations\AI\MonsterBehaviour.cs" />
@@ -188,6 +190,7 @@
     <Compile Include="Assets\SteamVR\Scripts\SteamVR_TrackedObject.cs" />
     <Compile Include="Assets\SteamVR\Scripts\SteamVR_UpdatePoses.cs" />
     <Compile Include="Assets\SteamVR\Scripts\SteamVR_Utils.cs" />
+    <Compile Include="Assets\TowerPlacement.cs" />
     <Compile Include="Assets\UnityTestTools\Assertions\AssertionComponent.cs" />
     <Compile Include="Assets\UnityTestTools\Assertions\AssertionException.cs" />
     <Compile Include="Assets\UnityTestTools\Assertions\Assertions.cs" />

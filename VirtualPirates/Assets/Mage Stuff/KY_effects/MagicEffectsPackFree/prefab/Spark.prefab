@@ -1956,6 +1956,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   explosion: {fileID: 100002, guid: 4ace374ac48734e0a8159109bc4c6bbb, type: 2}
+  explodeSound: {fileID: 0}
 --- !u!114 &11464626
 MonoBehaviour:
   m_ObjectHideFlags: 1

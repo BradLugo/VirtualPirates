@@ -25,6 +25,11 @@ public class ObjectiveDefenseManager : MonoBehaviour, IDefenseManager {
         healthManager.health -= (attackingValue - defenseValue);
     }
 
+    public float getSize()
+    {
+        return 10f;
+    }
+
     // Use this for initialization
     void Start () {
         defenseValue = 0;

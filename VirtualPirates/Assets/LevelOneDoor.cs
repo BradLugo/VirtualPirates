@@ -16,6 +16,6 @@ public class LevelOneDoor : MonoBehaviour {
 
     void OnTriggerEnter(Collider col)
     {
-        SceneManager.LoadScene("Forest Level Conceptt");
+        SceneManager.LoadScene("Training Chamber");
     }
 }

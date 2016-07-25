@@ -7,6 +7,7 @@ TagManager:
   - Objective
   - magic elements
   - Monster
+  - Loader
   layers:
   - Default
   - TransparentFX

@@ -200,6 +200,7 @@ GameObject:
   - 65: {fileID: 6584272}
   - 114: {fileID: 11469826}
   - 114: {fileID: 11491262}
+  - 114: {fileID: 11423354}
   m_Layer: 0
   m_Name: '[CameraRig]'
   m_TagString: Untagged
@@ -1004,6 +1005,17 @@ MonoBehaviour:
   padPressed: 0
   padTouched: 0
   gripped: 0
+--- !u!114 &11423354
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 143086}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45f193ae4cb7a3440b39fe6134429783, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11429662
 MonoBehaviour:
   m_ObjectHideFlags: 1

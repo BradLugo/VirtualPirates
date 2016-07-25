@@ -4,7 +4,7 @@ using System;
 
 public class MonsterHealthManager : MonoBehaviour, IHealthManager {
 
-    private int _health;
+    public int _health;
     public int health
     {
         get

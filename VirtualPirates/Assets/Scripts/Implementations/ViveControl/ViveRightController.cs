@@ -13,7 +13,7 @@ public class ViveRightController : MonoBehaviour
     private HashSet<IWieldable> objectsHoveringOver = new HashSet<IWieldable>();
 
     private IWieldable closestItem;
-    private IWieldable interactingItem;
+    public IWieldable interactingItem;
     
     void OnEnable()
     {
@@ -34,6 +34,16 @@ public class ViveRightController : MonoBehaviour
     void Start()
     {
         trackedObj = GetComponent<SteamVR_TrackedObject>();
+        var loader = GameObject.FindWithTag("Loader");
+        var loadItem = loader.GetComponent<LevelLoaderScript>().playerWeapon;
+        if (loadItem != null)
+        {
+            //var newWeapon = Instantiate(loadItem, this.transform.position, this.transform.rotation) as GameObject;
+            //var weildable = newWeapon.GetComponent<IWieldable>();
+            //weildable.BeginInteraction(this);
+            loadItem.GetComponent<IWieldable>().EndInteraction(this);
+            loadItem.GetComponent<IWieldable>().BeginInteraction(this);
+        }
     }
 
     void OnPadClicked(object sender, ClickedEventArgs e)

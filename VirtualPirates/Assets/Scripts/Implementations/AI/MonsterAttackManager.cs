@@ -32,13 +32,13 @@ public class MonsterAttackManager : MonoBehaviour, IAttackManager {
 
     public void attack(IDefenseManager target)
     {
-        target.Defend(attackValue);
+        target.Defend(_attackValue);
     }
 
     // Use this for initialization
     void Start () {
-        attackValue = 5;
-        attackRangeSqr = Math.Pow(5.5, 2);
+        _attackValue = 15;
+        attackRangeSqr = Math.Pow(10, 2);
 	}
 	
 	// Update is called once per frame

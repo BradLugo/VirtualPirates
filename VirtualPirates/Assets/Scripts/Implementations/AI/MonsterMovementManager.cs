@@ -6,8 +6,8 @@ public class MonsterMovementManager : MonoBehaviour, IMovementManager {
 
     private float rotateSpeed;
 
-    Animator animator;
-    Animation animation;
+    public Animation moveAnimation;
+    Animator moveAnimator;
 
     private int _jumpHeight;
     public int jumpHeight
@@ -49,7 +49,9 @@ public class MonsterMovementManager : MonoBehaviour, IMovementManager {
 
         float step = moveSpeed * Time.deltaTime;
         transform.position = Vector3.MoveTowards(transform.position, direction, step);
-        
+        GetComponent<Animation>().Play("Walk");
+        GetComponent<Animation>()["Walk"].speed = 1;
+        GetComponent<Animation>()["Walk"].wrapMode = WrapMode.Loop;
     }
 
     public void Update()
@@ -65,7 +67,7 @@ public class MonsterMovementManager : MonoBehaviour, IMovementManager {
     void Start () {
         _moveSpeed = 2;
         _jumpHeight = 1;
-        //animator = GetComponent<Animator>();
+        moveAnimator = GetComponent<Animator>();
         //animation = GetComponent<Animation>();
         //Debug.Log("Start animation");
 

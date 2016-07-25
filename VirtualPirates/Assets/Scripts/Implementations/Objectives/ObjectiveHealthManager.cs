@@ -4,7 +4,7 @@ using System;
 
 public class ObjectiveHealthManager : MonoBehaviour, IHealthManager {
 
-    private int _health;
+    public int _health;
     public int health
     {
         get
@@ -20,11 +20,11 @@ public class ObjectiveHealthManager : MonoBehaviour, IHealthManager {
 
     // Use this for initialization
     void Start () {
-        _health = 100;
+        health = 100;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-	
+	    
 	}
 }

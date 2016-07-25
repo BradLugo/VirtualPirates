@@ -22,6 +22,11 @@ public class DummyDefenseManager : MonoBehaviour, IDefenseManager {
         GetComponent<hitDummy>().TakeHit();
     }
 
+    public float getSize()
+    {
+        return 1f;
+    }
+
     // Use this for initialization
     void Start () {
         _defenseValue = 0;
