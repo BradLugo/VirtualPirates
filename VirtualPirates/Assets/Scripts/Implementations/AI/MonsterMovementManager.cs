@@ -63,7 +63,7 @@ public class MonsterMovementManager : MonoBehaviour, IMovementManager {
 
     // Use this for initialization
     void Start () {
-        _moveSpeed = 1;
+        _moveSpeed = 2;
         _jumpHeight = 1;
         //animator = GetComponent<Animator>();
         //animation = GetComponent<Animation>();

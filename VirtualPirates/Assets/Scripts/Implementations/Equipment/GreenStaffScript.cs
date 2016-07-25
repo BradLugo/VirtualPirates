@@ -25,6 +25,7 @@ public class GreenStaffScript : IWieldable {
 
     public Transform spawn;
     public GameObject spell;
+    public AudioClip spellSound;
     public int spellspeed;
 
     private int _attackValue;
@@ -63,9 +64,17 @@ public class GreenStaffScript : IWieldable {
     private void TriggerClicked(object sender, ClickedEventArgs e)
     {
         attachedController.GetComponentInParent<PlayerManaManager>();
-        GameObject magic = Instantiate(spell, spawn.transform.position, spawn.rotation) as GameObject;
-        magic.GetComponent<Rigidbody>().AddForce(spawn.forward * spellspeed);
-        manaPool.resourcePool -= 10;
+        if (manaPool.resourcePool >= 10)
+        {
+            var audioSource = GetComponent<AudioSource>();
+            audioSource.Stop();
+            audioSource.clip = spellSound;
+            audioSource.Play();
+
+            GameObject magic = Instantiate(spell, spawn.transform.position, spawn.rotation) as GameObject;
+            magic.GetComponent<Rigidbody>().AddForce(spawn.forward * spellspeed);
+            manaPool.resourcePool -= 10;
+        }
     }
 
     public override void EndInteraction(ViveRightController wand)
@@ -117,7 +126,6 @@ public class GreenStaffScript : IWieldable {
                 rotationDelta = new Quaternion();
                 this.rigidbody.velocity = new Vector3(0, 0, 0);
             }
-
 
             rotationDelta = attachedController.transform.rotation * Quaternion.Inverse(interactionPoint.rotation);
             rotationDelta.ToAngleAxis(out angle, out axis);
