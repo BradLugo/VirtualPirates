@@ -160,7 +160,95 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 9
---- !u!43 &135196345
+--- !u!1 &224185117
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 224185119}
+  - 114: {fileID: 224185118}
+  m_Layer: 0
+  m_Name: MonsterSpawner (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &224185118
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 224185117}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ddfdcfcf7cd3bf846858692f47c5aab0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  monster: {fileID: 190736, guid: 6682ea1a9a9b70d48a68034a3aa3e611, type: 2}
+  count: 7
+  nextSpawn: 8
+--- !u!4 &224185119
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 224185117}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 168.86858, y: 27.672314, z: 310.19748}
+  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 1
+--- !u!1 &330852010
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 199422, guid: fd13ac612e51928448096e69dd2d6fa2, type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 330852011}
+  - 114: {fileID: 330852012}
+  m_Layer: 0
+  m_Name: Model
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &330852011
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 416622, guid: fd13ac612e51928448096e69dd2d6fa2, type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 330852010}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 850656408}
+  m_RootOrder: 0
+--- !u!114 &330852012
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11405730, guid: fd13ac612e51928448096e69dd2d6fa2,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 330852010}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5890e3cad70bea64d91aef9145ba3454, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  index: -1
+  modelOverride: 
+  shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
+  verbose: 0
+  createComponents: 1
+  updateDynamically: 1
+--- !u!43 &471802176
 Mesh:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -288,94 +376,6 @@ Mesh:
   m_BakedConvexCollisionMesh: 
   m_BakedTriangleCollisionMesh: 
   m_MeshOptimized: 0
---- !u!1 &224185117
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 224185119}
-  - 114: {fileID: 224185118}
-  m_Layer: 0
-  m_Name: MonsterSpawner (2)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &224185118
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 224185117}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ddfdcfcf7cd3bf846858692f47c5aab0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  monster: {fileID: 110484, guid: 0286c98c8dcec4640b15db6e07a8f6e8, type: 2}
-  count: 7
-  nextSpawn: 8
---- !u!4 &224185119
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 224185117}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 168.86858, y: 27.672314, z: 310.19748}
-  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 1
---- !u!1 &330852010
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 199422, guid: fd13ac612e51928448096e69dd2d6fa2, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 330852011}
-  - 114: {fileID: 330852012}
-  m_Layer: 0
-  m_Name: Model
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &330852011
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 416622, guid: fd13ac612e51928448096e69dd2d6fa2, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 330852010}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 850656408}
-  m_RootOrder: 0
---- !u!114 &330852012
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11405730, guid: fd13ac612e51928448096e69dd2d6fa2,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 330852010}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5890e3cad70bea64d91aef9145ba3454, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  index: -1
-  modelOverride: 
-  shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
-  verbose: 0
-  createComponents: 1
-  updateDynamically: 1
 --- !u!1 &515973259
 GameObject:
   m_ObjectHideFlags: 0
@@ -451,7 +451,6 @@ GameObject:
   - 114: {fileID: 531100287}
   - 114: {fileID: 531100286}
   - 114: {fileID: 531100285}
-  - 114: {fileID: 531100284}
   m_Layer: 0
   m_Name: '[CameraRig]'
   m_TagString: Player
@@ -459,18 +458,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &531100284
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11423354, guid: fd13ac612e51928448096e69dd2d6fa2,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 531100283}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 45f193ae4cb7a3440b39fe6134429783, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &531100285
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -529,7 +516,7 @@ MeshFilter:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 531100283}
-  m_Mesh: {fileID: 135196345}
+  m_Mesh: {fileID: 471802176}
 --- !u!23 &531100289
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -579,7 +566,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 531100283}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 168.72269, y: 26.127876, z: 421.43277}
+  m_LocalPosition: {x: 166.83, y: 25.8, z: 426.33}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_Children:
   - {fileID: 858548881}
@@ -892,7 +879,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ddfdcfcf7cd3bf846858692f47c5aab0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  monster: {fileID: 110484, guid: 0286c98c8dcec4640b15db6e07a8f6e8, type: 2}
+  monster: {fileID: 190736, guid: 6682ea1a9a9b70d48a68034a3aa3e611, type: 2}
   count: 5
   nextSpawn: 10
 --- !u!4 &850963639
@@ -919,6 +906,7 @@ GameObject:
   - 114: {fileID: 858548879}
   - 114: {fileID: 858548878}
   - 114: {fileID: 858548877}
+  - 114: {fileID: 858548882}
   m_Layer: 0
   m_Name: Controller (left)
   m_TagString: Untagged
@@ -999,6 +987,18 @@ Transform:
   - {fileID: 1327032331}
   m_Father: {fileID: 531100291}
   m_RootOrder: 0
+--- !u!114 &858548882
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 858548876}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45f193ae4cb7a3440b39fe6134429783, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  selectedTower: {fileID: 170964, guid: c910905e07990bc4faa4c4ea9c834486, type: 2}
 --- !u!1 &928697932
 GameObject:
   m_ObjectHideFlags: 0
@@ -1176,7 +1176,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ddfdcfcf7cd3bf846858692f47c5aab0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  monster: {fileID: 110484, guid: 0286c98c8dcec4640b15db6e07a8f6e8, type: 2}
+  monster: {fileID: 190736, guid: 6682ea1a9a9b70d48a68034a3aa3e611, type: 2}
   count: 4
   nextSpawn: 5
 --- !u!4 &1141218524

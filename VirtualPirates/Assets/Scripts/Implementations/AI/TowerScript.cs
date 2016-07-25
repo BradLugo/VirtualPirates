@@ -57,7 +57,8 @@ public class TowerScript : MonoBehaviour {
 
     private void OnTriggerEnter(Collider collider)
     {
-        IDefenseManager target = collider.GetComponent<IDefenseManager>();
+        Debug.Log("TriggerEnter");
+        IDefenseManager target = collider.GetComponentInParent<IDefenseManager>();
         if (target != null && collider.gameObject.tag == "Monster")
         {
             targetsInRange.AddLast(collider);
@@ -67,7 +68,7 @@ public class TowerScript : MonoBehaviour {
     // Remove all items no longer colliding with to avoid further processing
     private void OnTriggerExit(Collider collider)
     {
-        IWieldable collidedItem = collider.GetComponent<IWieldable>();
+        IDefenseManager target = collider.GetComponentInParent<IDefenseManager>();
         if (target != null && collider.gameObject.tag == "Monster")
         {
             targetsInRange.Remove(collider);

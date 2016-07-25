@@ -27,7 +27,7 @@ public class ObjectiveDefenseManager : MonoBehaviour, IDefenseManager {
 
     public float getSize()
     {
-        return 10f;
+        return 7f;
     }
 
     // Use this for initialization

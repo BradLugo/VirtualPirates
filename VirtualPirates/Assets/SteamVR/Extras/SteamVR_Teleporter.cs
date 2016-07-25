@@ -60,7 +60,7 @@ public class SteamVR_Teleporter : MonoBehaviour
             {
                 RaycastHit hitInfo;
                 TerrainCollider tc = Terrain.activeTerrain.GetComponent<TerrainCollider>();
-                hasGroundTarget = tc.Raycast(ray, out hitInfo, 1000f);
+                hasGroundTarget = tc.Raycast(ray, out hitInfo, 10f);
                 dist = hitInfo.distance;
             }
             else if (teleportType == TeleportType.TeleportTypeUseCollider)
